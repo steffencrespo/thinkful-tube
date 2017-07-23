@@ -29,7 +29,7 @@ function printVideoList(data) {
 	for (let i = 0; i < videosList.length; i++) {
 		let title = videosList[i].snippet.title;
 		let description = videosList[i].snippet.description;
-		let thumbnail = videosList[i].snippet.thumbnails.default;
+		let thumbnail = videosList[i].snippet.thumbnails.default.url;
 		$('#js-videos-list')
 			.append(`
 				<section class='video-box'>
@@ -38,9 +38,8 @@ function printVideoList(data) {
 						<span>description</span>
 					</header>
 					<div id='video-item'>
-						<p>${thumbnail}</p>
+						<img src='${thumbnail}'>
 					</div>
-
 				</section>`);
 	}
 }
