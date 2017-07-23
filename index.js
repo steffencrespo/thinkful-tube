@@ -2,14 +2,13 @@ const API_KEY = 'AIzaSyA4oC_zsoNlR64H2XnHQUDK7YBw5GDwFKU';
 const ENDPOINT_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function handleForm() {
-	printVideoList();
 	$('#search-subject').on('submit', function(event) {
 		event.preventDefault();
-		alert(handleYoutubeSearch('leo', null));
+		getDataFromAPI('leo', printVideoList);
 	});
 }
 
-function handleYoutubeSearch(searchTerm, callBack) {
+function getDataFromAPI(searchTerm, callback) {
 	const settings = {
 		url: ENDPOINT_URL,
 		data: {
@@ -18,31 +17,31 @@ function handleYoutubeSearch(searchTerm, callBack) {
 			key: API_KEY
 		},
 		datatype: 'json',
-		type: 'GET'
+		type: 'GET',
+		success: callback
 	};
 	$.ajax(settings);
 }
 
-function getDataFromApi(searchTerm, callback) {
-  const query = {
-  	key: API_KEY,
-    q: `${searchTerm}`,
-    part: 'snippet'
-  }
-  $.getJSON(ENDPOINT_URL, query, callback);
-}
+function printVideoList(data) {
+	const videosList = data.items;
 
-function printVideoList() {
-	let html = '';
-	const videos = 
-		[{
-			title: "one"},
-		{
-			title: "two"
-		}];
+	for (let i = 0; i < videosList.length; i++) {
+		let title = videosList[i].snippet.title;
+		let description = videosList[i].snippet.description;
+		let thumbnail = videosList[i].snippet.thumbnails.default;
+		$('#js-videos-list')
+			.append(`
+				<section class='video-box'>
+					<header>
+						<h2>${title}</h2>
+						<span>description</span>
+					</header>
+					<div id='video-item'>
+						<p>${thumbnail}</p>
+					</div>
 
-	for (let i = 0; i < videos.length; i++) {
-		$('#js-videos-list').append(`<div id='video-item'><p>${videos[i].title}</p></div>`);
+				</section>`);
 	}
 }
 
