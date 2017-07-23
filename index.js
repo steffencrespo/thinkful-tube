@@ -35,7 +35,7 @@ function printVideoList(data) {
 				<section class='video-box'>
 					<header>
 						<h2>${title}</h2>
-						<span>description</span>
+						<span>${description}</span>
 					</header>
 					<div id='video-item'>
 						<img src='${thumbnail}'>
