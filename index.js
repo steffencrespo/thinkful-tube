@@ -32,10 +32,10 @@ function printVideoList(data) {
 		let thumbnail = videosList[i].snippet.thumbnails.default.url;
 		$('#js-videos-list')
 			.append(`
-				<section class='video-box'>
-					<header>
+				<section class='video-box col-3'>
+					<div class='video-title'>
 						<h2>${title}</h2>
-					</header>
+					</div>
 					<div class='video-item'>
 						<img src='${thumbnail}'>
 					</div>

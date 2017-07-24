@@ -6,9 +6,34 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.videos-list {
+	margin: auto;
+}
+
 .video-box {
-	height: 400px;
-	width: 400px;
+	height: 200px;
+	width: 200px;
 	border: 1px solid black;
-	display: inline-block;
+	text-align: center;
+	float: top;
+}
+
+.video-item * {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.video-title {
+	height: 30%;
+	width: 70%;
+}
+
+.video-title h2 {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	font-size: 15px;
+	text-align: center;
 }
