@@ -30,6 +30,7 @@ function printVideoList(data) {
 		let title = videosList[i].snippet.title;
 		let description = videosList[i].snippet.description;
 		let thumbnail = videosList[i].snippet.thumbnails.default.url;
+		let videoUrl = `https://www.youtube.com/watch?v=${videosList[i].id.videoId}`;
 		$('#js-videos-list')
 			.append(`
 				<section class='video-box col-3'>
@@ -37,7 +38,7 @@ function printVideoList(data) {
 						<h2>${title}</h2>
 					</div>
 					<div class='video-item'>
-						<img src='${thumbnail}'>
+						<a href='${videoUrl}' target=_blank'><img src='${thumbnail}'></a>
 					</div>
 				</section>`);
 	}
