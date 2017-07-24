@@ -36,4 +36,5 @@ body {
 	position: relative;
 	font-size: 15px;
 	text-align: center;
+	display: inline;
 }

@@ -4,7 +4,7 @@ const ENDPOINT_URL = 'https://www.googleapis.com/youtube/v3/search';
 function handleForm() {
 	$('#search-subject').on('submit', function(event) {
 		event.preventDefault();
-		getDataFromAPI($('input').text(), printVideoList);
+		getDataFromAPI($('#js-video-search-term').val(), printVideoList);
 	});
 }
 
