@@ -27,7 +27,7 @@ body {
 
 .video-title {
 	height: 30%;
-	width: 70%;
+	width: 100%;
 }
 
 .video-title h2 {
@@ -36,5 +36,4 @@ body {
 	position: relative;
 	font-size: 15px;
 	text-align: center;
-	display: inline;
 }
